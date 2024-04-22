@@ -9,7 +9,10 @@ Locales['en'] = {
   -- Discord Webhook Name
   ['DiscordWebhookName'] = 'Counterfeit Cash Script',
 
-
+  --Police Stuff
+  ['PoliceNot'] = 'Somebody started money printing operation',
+  
+  
   --Sell
 
 
