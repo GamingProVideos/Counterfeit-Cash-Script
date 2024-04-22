@@ -10,4 +10,11 @@ Locales['en'] = {
   ['DiscordWebhookName'] = 'Counterfeit Cash Script',
 
 
+  --Sell
+
+
+  --Buy
+  ['BuyPaper'] = 'Press [~g~E~w~] to Buy Bank Paper to Stock',
+  ['BuyInk'] = 'Press [~g~E~w~] to Buy Ink Paper to Stock',
+
 }
