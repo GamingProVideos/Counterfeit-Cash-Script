@@ -1,5 +1,5 @@
 RegisterServerEvent('DiscordLog')
-AddEventHandler('DiscordLog', function(amountToWash)
+AddEventHandler('DiscordLog', function(sold)
 
   local xPlayer = ESX.GetPlayerFromId(source)
   local id = xPlayer.getIdentifier()
@@ -10,7 +10,7 @@ AddEventHandler('DiscordLog', function(amountToWash)
 	{
 		["color"] = "8663711",
 		["title"] = TranslateCap('DiscordWebhookName'),
-		["description"] = "".. name .. "\n IDENTIFIER: [" .. id .. "] \n" .. "Laundered money: " .. amountToWash .. "" .. "\nTime: ".. DATE .. "",
+		["description"] = "".. name .. "\n IDENTIFIER: [" .. id .. "] \n" .. "Laundered money: " .. sold .. "" .. "\nTime: ".. DATE .. "",
 		["footer"] = {
 		["text"] = Config.servername,
 		},
