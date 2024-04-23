@@ -1,24 +1,25 @@
+local ESX 				= nil
+local EnougthCops = false
 
+TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
-RegisterServerEvent('startWashing')
-AddEventHandler('startWashing', function(amountToWash)
-    local _source = source
-    local xPlayer = ESX.GetPlayerFromId(_source)
-    local playerIdentifier = GetPlayerIdentifier(_source)
-    local playerId = _source
-
-    if xPlayer.getAccount('black_money').money < amountToWash then
-      TriggerClientEvent('esx:showNotification', _source, TranslateCap('notif4'))
-        return
-    end
-
-    TriggerClientEvent('progressbar', _source, Config.washtime)
-    Citizen.Wait(Config.washtime + 1000)
-    local CashAfterTax = amountToWash * Config.Tax
-
-    xPlayer.removeAccountMoney('black_money', amountToWash)
-    xPlayer.addMoney(CashAfterTax)
-
-    TriggerClientEvent('esx:showNotification', _source, TranslateCap('notif3')..CashAfterTax..'€')
-    TriggerServerEvent('DiscordLog', amountToWash)
-end)
+function GetCops()
+  if ActivePolice then
+          local Players = ESX.GetPlayers()
+          policeOnline = 0
+          for i = 1, #Players do
+              local xPlayer = ESX.GetPlayerFromId(Players[i])
+              if xPlayer["job"]["name"] == "police" then
+                  policeOnline = policeOnline + 1
+              end
+          end
+          if policeOnline >= Config.MinimumPolice then
+              EnougthCops = true
+          else
+              EnougthCops = false
+          end
+      else
+          EnougthCops = true
+          --print("no need police")
+  end
+end
